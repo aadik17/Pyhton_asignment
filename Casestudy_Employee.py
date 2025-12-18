@@ -14,7 +14,7 @@ records = [
 
 fieldnames = ["EmployeeID", "Name", "Date", "Status"]
 
-# Create/overwrite the file and write header + records
+
 with open(FILENAME, "w", newline="", encoding="utf-8") as f:
     writer = csv.DictWriter(f, fieldnames=fieldnames)
     writer.writeheader()
@@ -32,7 +32,7 @@ with open(FILENAME, "r", newline="", encoding="utf-8") as f:
 # 3) Append a new employee attendance record to attendance.csv
 new_record = {"EmployeeID": "E004", "Name": "Neha Patil", "Date": "2025-12-18", "Status": "Absent"}
 
-# Ensure header exists (it does, since we created above). Append the new row.
+
 with open(FILENAME, "a", newline="", encoding="utf-8") as f:
     writer = csv.DictWriter(f, fieldnames=fieldnames)
     writer.writerow(new_record)
@@ -57,7 +57,7 @@ with open(FILENAME, "r", newline="", encoding="utf-8") as f:
 print(f"\n Total employees marked as Absent: {absent_count}")
 
 ## 5) Search for an employee using Employee ID
-search_id = "E002"  # you can change this to test
+search_id = "E002"  
 matches = []
 with open(FILENAME, "r", newline="", encoding="utf-8") as f:
     reader = csv.DictReader(f)
@@ -71,3 +71,4 @@ if matches:
         print(m)
 else:
     print("No matches found.")
+
